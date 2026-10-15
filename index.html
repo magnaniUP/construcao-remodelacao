@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Técnico para o Mercado Português -->
+  <title>Radu Construção &amp; Remodelação | Obras e Remodelações em Lisboa</title>
+  <meta name="description" content="Especialistas em construção civil e remodelação de casas e edifícios em Lisboa. Projetos residenciais e comerciais de alta qualidade com rigor, cumprimento de prazos e confiança.">
+  <meta name="keywords" content="construção em Lisboa, remodelação de casas em Lisboa, obras de remodelação, construção civil, reabilitação de edifícios, Radu construção">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://raduconstrucao.pt/">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:site_name" content="Radu Construção &amp; Remodelação">
+  <meta property="og:title" content="Radu Construção &amp; Remodelação | Obras e Remodelações em Lisboa">
+  <meta property="og:description" content="Especialistas em construção civil e remodelação em Lisboa e arredores. Qualidade, rigor e transparência.">
+  
+  <!-- Tipografia Oficial (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Favicon e Ícones -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+</head>
+<body>
+
+  <!-- ======================================================================
+       CABEÇALHO SUPERIOR (ETAPA 1)
+       Fidelidade estrita ao mockup: Logotipo, Navegação com 'Início' ativo e
+       botão de conversão em tom terracota.
+       ====================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      
+      <!-- A. Logotipo Oficial Radu -->
+      <a href="#inicio" class="brand-link" aria-label="Radu Construção &amp; Remodelação - Voltar ao Início">
+        <img 
+          src="assets/images/logo.svg" 
+          alt="Logotipo Radu Construção &amp; Remodelação" 
+          class="brand-logo-img" 
+          width="220" 
+          height="44"
+          loading="eager"
+        >
+      </a>
+
+      <!-- B. Menu de Navegação Horizontal / Gaveta Móvel -->
+      <nav id="primary-navigation" class="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list" role="menubar">
+          <li class="nav-item" role="none">
+            <a href="#inicio" class="nav-link is-active" role="menuitem" aria-current="page">Início</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="#servicos" class="nav-link" role="menuitem">Serviços</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="#construcao" class="nav-link" role="menuitem">Construção</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="#remodelacao" class="nav-link" role="menuitem">Remodelação</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="#projetos" class="nav-link" role="menuitem">Projetos</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="#contactos" class="nav-link" role="menuitem">Contactos</a>
+          </li>
+        </ul>
+
+        <!-- Botão CTA no interior do Menu Móvel -->
+        <div class="mobile-nav-cta">
+          <a href="#orcamento" class="btn-quote" aria-label="Pedir orçamento para o seu projeto">
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              <path d="M9 12h6"></path>
+              <path d="M9 16h6"></path>
+            </svg>
+            <span>Pedir orçamento</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- C. Ações do Cabeçalho: Botão de Conversão e Alternador Mobile -->
+      <div class="header-actions">
+        <!-- Botão Desktop -->
+        <a href="#orcamento" class="btn-quote" aria-label="Pedir orçamento para o seu projeto">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+            <path d="M9 12h6"></path>
+            <path d="M9 16h6"></path>
+          </svg>
+          <span>Pedir orçamento</span>
+        </a>
+
+        <!-- Botão Alternador do Menu Móvel (Acessível) -->
+        <button 
+          type="button" 
+          class="mobile-menu-toggle" 
+          aria-expanded="false" 
+          aria-controls="primary-navigation" 
+          aria-label="Abrir menu de navegação"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Fundo semitransparente para o menu móvel -->
+  <div class="mobile-overlay" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       IDENTIFICADORES DE ÂNCORAS PREPARADOS PARA AS PRÓXIMAS ETAPAS
+       Conforme instrução: Conteúdo visual das próximas dobras não construído nesta etapa.
+       ====================================================================== -->
+  <main id="main-content">
+    <!-- Âncora de topo para 'Início' -->
+    <div id="inicio" class="section-anchor"></div>
+
+    <!-- ======================================================================
+         HERO SECTION (ETAPA 2)
+         Fidelidade estrita ao mockup: Fotografia arquitetónica de moradia portuguesa
+         com telhado cerâmico e piscina, transição suave para área textual à esquerda,
+         H1 com quebras de linha exatas e botões de conversão lado a lado.
+         ====================================================================== -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <!-- Imagem panorâmica de fundo com overlay suave -->
+      <div class="hero-bg-wrapper">
+        <picture>
+          <source srcset="assets/images/casa-estilo-portugues-hero.webp?v=5" type="image/webp">
+          <img 
+            src="assets/images/casa-estilo-portugues-hero.jpg?v=5" 
+            alt="Moradia tradicional no estilo português com beiral de telhas cerâmicas, varanda em ferro forjado e piscina em Lisboa" 
+            class="hero-bg-img" 
+            width="1376" 
+            height="768" 
+            fetchpriority="high" 
+            loading="eager"
+          >
+        </picture>
+        <div class="hero-gradient-overlay" aria-hidden="true"></div>
+      </div>
+
+      <!-- Conteúdo Textual e Botões de Conversão -->
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-tag">CONSTRUÇÃO &amp; REMODELAÇÃO EM LISBOA</span>
+          
+          <h1 id="hero-title" class="hero-title">
+            Construímos<br>o seu próximo<br>capítulo.
+          </h1>
+
+          <p class="hero-desc">
+            Mais do que obras, entregamos espaços funcionais, modernos e feitos à medida das suas necessidades. Com qualidade, transparência e acompanhamento em todas as fases.
+          </p>
+
+          <div class="hero-actions">
+            <!-- Botão Principal: Pedir orçamento gratuito -->
+            <a href="#orcamento" class="btn-quote btn-hero-primary" aria-label="Pedir orçamento gratuito para a sua obra">
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M9 12h6"></path>
+                <path d="M9 16h6"></path>
+              </svg>
+              <span>Pedir orçamento gratuito</span>
+            </a>
+
+            <!-- Botão Secundário: Ver projetos -->
+            <a href="#projetos" class="btn-secondary btn-hero-secondary" aria-label="Ver projetos realizados pela Radu">
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span>Ver projetos</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         FAIXA DE DIFERENCIAIS (ETAPA 3)
+         Fidelidade estrita ao mockup: Fundo neutro suave, 4 diferenciais horizontais,
+         ícones lineares em terracota, títulos e descrições com divisórias verticais discretas.
+         ====================================================================== -->
+    <section class="features-bar" aria-label="Diferenciais e sinais de confiança da Radu">
+      <div class="container">
+        <div class="features-grid">
+          
+          <!-- Diferencial 1 — Experiência -->
+          <div class="feature-item">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong class="feature-title">Mais de 15 anos</strong>
+              <span class="feature-desc">de experiência</span>
+            </div>
+          </div>
+
+          <!-- Diferencial 2 — Projetos -->
+          <div class="feature-item">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong class="feature-title">+100 projetos</strong>
+              <span class="feature-desc">concluídos</span>
+            </div>
+          </div>
+
+          <!-- Diferencial 3 — Acompanhamento -->
+          <div class="feature-item">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong class="feature-title">Acompanhamento</strong>
+              <span class="feature-desc">próximo e personalizado</span>
+            </div>
+          </div>
+
+          <!-- Diferencial 4 — Orçamentos -->
+          <div class="feature-item">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <line x1="10" y1="9" x2="8" y2="9"></line>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <strong class="feature-title">Orçamentos claros</strong>
+              <span class="feature-desc">e sem surpresas</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO DE SERVIÇOS (ETAPA 4)
+         Fidelidade estrita ao mockup original da Radu Construção & Remodelação:
+         - Parte A: Introdução à esquerda com tag, H2 e descrição
+         - Parte B: Foto de análise de plantas + Bloco azul-marinho de chamada (#orcamento)
+         - Parte C: Quatro cartões uniformes com foto, ícone terracota, título e descrição
+         ====================================================================== -->
+    <section id="servicos" class="services-section" aria-labelledby="services-title">
+      <div class="container">
+        
+        <!-- Linha Superior: Introdução (esquerda) + Análise de Plantas e Chamada CTA (direita) -->
+        <div class="services-header-grid">
+          
+          <!-- PARTE A — INTRODUÇÃO -->
+          <div class="services-intro">
+            <span class="section-tag">OS NOSSOS SERVIÇOS</span>
+            <h2 id="services-title" class="section-title">Soluções completas para a sua casa</h2>
+            <p class="section-desc">
+              Da construção à remodelação, oferecemos serviços completos e personalizados, com foco na qualidade, no cumprimento de prazos e na satisfação de cada cliente.
+            </p>
+          </div>
+
+          <!-- PARTE B — CHAMADA PARA ORÇAMENTO (Foto de análise + Bloco azul-marinho) -->
+          <div class="services-cta-group">
+            <!-- Fotografia de profissionais a analisar plantas de construção -->
+            <div class="services-plan-media">
+              <picture>
+                <source srcset="assets/images/servico-analise-projetos.webp?v=2" type="image/webp">
+                <img 
+                  src="assets/images/servico-analise-projetos.jpg?v=2" 
+                  alt="Profissionais e engenheiros a analisar plantas de arquitetura e projetos de construção" 
+                  class="services-plan-img" 
+                  width="800" 
+                  height="597" 
+                  loading="lazy"
+                >
+              </picture>
+            </div>
+
+            <!-- Bloco retangular azul-marinho de chamada para orçamento -->
+            <a href="#orcamento" class="services-cta-card" aria-label="Tem um projeto em mente? Fale connosco e peça o seu orçamento sem compromisso.">
+              <div class="services-cta-card-top">
+                <div class="services-cta-icon-badge" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="services-cta-content">
+                <h3 class="services-cta-title">Tem um projeto em mente?</h3>
+                <p class="services-cta-desc">Fale connosco e peça o seu orçamento sem compromisso.</p>
+              </div>
+              <div class="services-cta-arrow" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- PARTE C — QUATRO CARTÕES DE SERVIÇOS -->
+        <div class="services-cards-grid">
+          
+          <!-- Cartão 1 — Construção -->
+          <article id="construcao" class="service-card">
+            <div class="service-card-media">
+              <picture>
+                <source srcset="assets/images/servico-construcao.webp?v=2" type="image/webp">
+                <img 
+                  src="assets/images/servico-construcao.jpg?v=2" 
+                  alt="Fundações, cofragens e estruturas em betão armado para construção residencial" 
+                  class="service-card-img" 
+                  width="800" 
+                  height="446" 
+                  loading="lazy"
+                >
+              </picture>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-header">
+                <svg class="service-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <h3 class="service-card-title">Construção</h3>
+              </div>
+              <p class="service-card-desc">Fundações, estruturas e obras de nova construção.</p>
+            </div>
+          </article>
+
+          <!-- Cartão 2 — Reabilitação e acabamentos -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <picture>
+                <source srcset="assets/images/servico-reabilitacao.webp?v=2" type="image/webp">
+                <img 
+                  src="assets/images/servico-reabilitacao.jpg?v=2" 
+                  alt="Moradia portuguesa reabilitada com fachada restaurada, telhado cerâmico e jardim" 
+                  class="service-card-img" 
+                  width="800" 
+                  height="446" 
+                  loading="lazy"
+                >
+              </picture>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-header">
+                <svg class="service-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <h3 class="service-card-title">Reabilitação e acabamentos</h3>
+              </div>
+              <p class="service-card-desc">Reabilitação de edifícios, isolamento térmico e acabamentos de qualidade.</p>
+            </div>
+          </article>
+
+          <!-- Cartão 3 — Remodelação de interiores -->
+          <article id="remodelacao" class="service-card">
+            <div class="service-card-media">
+              <picture>
+                <source srcset="assets/images/servico-remodelacao-interiores.webp?v=2" type="image/webp">
+                <img 
+                  src="assets/images/servico-remodelacao-interiores.jpg?v=2" 
+                  alt="Sala de estar moderna remodelada com pavimento em soalho de madeira e iluminação natural" 
+                  class="service-card-img" 
+                  width="800" 
+                  height="446" 
+                  loading="lazy"
+                >
+              </picture>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-header">
+                <svg class="service-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="9" y1="3" x2="9" y2="21"></line>
+                  <line x1="9" y1="12" x2="21" y2="12"></line>
+                </svg>
+                <h3 class="service-card-title">Remodelação de interiores</h3>
+              </div>
+              <p class="service-card-desc">Cozinhas, casas de banho, pavimentos, pintura e muito mais.</p>
+            </div>
+          </article>
+
+          <!-- Cartão 4 — Instalações -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <picture>
+                <source srcset="assets/images/servico-instalacoes.webp?v=2" type="image/webp">
+                <img 
+                  src="assets/images/servico-instalacoes.jpg?v=2" 
+                  alt="Casa de banho moderna renovada com revestimentos cerâmicos bege e duche de vidro" 
+                  class="service-card-img" 
+                  width="800" 
+                  height="446" 
+                  loading="lazy"
+                >
+              </picture>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-header">
+                <svg class="service-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                <h3 class="service-card-title">Instalações</h3>
+              </div>
+              <p class="service-card-desc">Instalação elétrica, sanitária e acabamentos técnicos.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO SOBRE A RADU (ETAPA 5)
+         Fidelidade estrita ao mockup original da Radu Construção & Remodelação:
+         - Duas colunas com espaçamento equilibrado
+         - Fotografia fotorrealista da moradia tradicional portuguesa à esquerda
+         - Conteúdo institucional (tag, H2 em duas linhas, dois parágrafos) à direita
+         - Botão terracota "Conheça a nossa empresa" com microinteração
+         ====================================================================== -->
+    <section id="sobre" class="about-section" aria-labelledby="about-title">
+      <div class="container about-container">
+        
+        <!-- Coluna Esquerda: Fotografia da Moradia Portuguesa -->
+        <div class="about-media">
+          <picture>
+            <source srcset="assets/images/moradia-portuguesa-sobre.webp" type="image/webp">
+            <img 
+              src="assets/images/moradia-portuguesa-sobre.jpg" 
+              alt="Moradia portuguesa com fachada branca, telhado cerâmico e jardim" 
+              class="about-img" 
+              width="800" 
+              height="423" 
+              loading="lazy"
+            >
+          </picture>
+        </div>
+
+        <!-- Coluna Direita: Conteúdo Institucional -->
+        <div class="about-content">
+          <span class="section-tag">SOBRE A RADU</span>
+          
+          <h2 id="about-title" class="about-title">
+            Compromisso, qualidade<br>e confiança.
+          </h2>
+
+          <p class="about-text">
+            A Radu Construção &amp; Remodelação é uma empresa com mais de 15 anos de experiência no setor da construção civil, especializada em obras de remodelação e reabilitação em Lisboa.
+          </p>
+
+          <p class="about-text">
+            Trabalhamos com rigor, cumprindo prazos e orçamento, e com uma equipa qualificada que acompanha cada projeto do início ao fim.
+          </p>
+
+          <div class="about-action">
+            <a href="#projetos" class="btn-about" aria-label="Conheça a nossa empresa e os nossos projetos">
+              <svg class="btn-about-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span>Conheça a nossa empresa</span>
+              <svg class="btn-about-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div id="projetos" class="section-anchor"></div>
+    <div id="contactos" class="section-anchor"></div>
+    <div id="orcamento" class="section-anchor"></div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

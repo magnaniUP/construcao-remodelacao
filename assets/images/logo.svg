@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 56" width="250" height="56" fill="none" role="img" aria-label="Radu Construção &amp; Remodelação">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&amp;display=swap');
+      .brand-title {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        fill: #112A3C;
+        letter-spacing: -0.3px;
+      }
+      .brand-subtitle {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        font-size: 9.5px;
+        font-weight: 500;
+        fill: #112A3C;
+        letter-spacing: 0.4px;
+        opacity: 0.95;
+      }
+    </style>
+  </defs>
+
+  <!-- Construction Helmet + Architecture Symbol -->
+  <g transform="translate(4, 4)">
+    <!-- Helmet Dome -->
+    <path d="M 9 23 C 9 12 16 6 24 6 C 32 6 39 12 39 23 Z" fill="#AD5C3B" />
+    
+    <!-- Helmet Top Center Ridge -->
+    <path d="M 22.5 5 C 22.5 4.5 25.5 4.5 25.5 5 L 25.5 21 L 22.5 21 Z" fill="#934B2E" />
+    <path d="M 16 9 C 16 9 17.5 7.5 20 7.5 L 20 22 L 18 22 Z" fill="#C46D4B" opacity="0.6" />
+
+    <!-- Helmet Visor / Brim -->
+    <path d="M 5 23 C 5 22 7 21.5 9 21.5 L 39 21.5 C 41 21.5 43 22 43 23 C 43 24.5 39 26 24 26 C 9 26 5 24.5 5 23 Z" fill="#8F4327" />
+
+    <!-- Building Structure Under Helmet -->
+    <!-- Foundation Base -->
+    <rect x="7" y="38" width="34" height="3" rx="1" fill="#112A3C" />
+    
+    <!-- Left Column / Wall -->
+    <rect x="9" y="27" width="5" height="10" rx="0.5" fill="#112A3C" />
+    
+    <!-- Right Column / Wall -->
+    <rect x="34" y="27" width="5" height="10" rx="0.5" fill="#112A3C" />
+    
+    <!-- Central Construction / Masonry Elements -->
+    <rect x="17" y="27" width="6" height="4" rx="0.5" fill="#AD5C3B" />
+    <rect x="25" y="27" width="6" height="4" rx="0.5" fill="#112A3C" opacity="0.85" />
+    <rect x="15" y="32" width="8.5" height="4.5" rx="0.5" fill="#112A3C" opacity="0.85" />
+    <rect x="24.5" y="32" width="8.5" height="4.5" rx="0.5" fill="#AD5C3B" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(56, 0)">
+    <text x="0" y="29" class="brand-title">Radu</text>
+    <text x="0" y="44" class="brand-subtitle">Construção &amp; Remodelação</text>
+  </g>
+</svg>
+

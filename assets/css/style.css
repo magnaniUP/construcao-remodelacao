@@ -1,0 +1,1353 @@
+/* ==========================================================================
+   Radu Construção & Remodelação - Estilos Oficiais do Cabeçalho e Menu
+   Etapa 1: Cabeçalho Superior, Navegação e Responsividade
+   Identidade: Terracota (#AD5C3B), Azul-Marinho (#112A3C), Bege Quente (#FAF9F7)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variáveis e Design Tokens (Fidelidade ao Mockup)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta Oficial extraída do Mockup */
+  --color-terracotta: #ad5c3b;
+  --color-terracotta-hover: #944b2e;
+  --color-terracotta-light: rgba(173, 92, 59, 0.1);
+  --color-navy: #112a3c;
+  --color-navy-muted: #3d566e;
+  --color-navy-light: #526e88;
+  --color-bg-header: #faf9f7;
+  --color-bg-body: #ffffff;
+  --color-white: #ffffff;
+  --color-border-subtle: rgba(17, 42, 60, 0.08);
+
+  /* Tipografia */
+  --font-family-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-nav: 0.9375rem; /* ~15px */
+  --font-size-btn: 0.875rem;  /* 14px */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Dimensões */
+  --header-height-desktop: 76px;
+  --header-height-mobile: 66px;
+  --container-max-width: 1240px;
+  --transition-default: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-btn: 5px;
+  --radius-sm: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset e Configurações Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg-body);
+  color: var(--color-navy);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Acessibilidade: Foco visível via teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Respeito a utilizadores com preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilitários de Layout */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Cabeçalho Superior (.site-header)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height-desktop);
+  background-color: var(--color-bg-header);
+  border-bottom: 1px solid transparent;
+  z-index: 1000;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estado quando o cabeçalho é rolado */
+.site-header.is-scrolled {
+  background-color: rgba(250, 249, 247, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom-color: var(--color-border-subtle);
+  box-shadow: 0 4px 16px rgba(17, 42, 60, 0.04);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Logotipo (.brand-logo)
+   -------------------------------------------------------------------------- */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+  color: inherit;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.brand-link:hover {
+  opacity: 0.92;
+}
+
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 220px;
+  display: block;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   5. Navegação Principal (.main-nav)
+   -------------------------------------------------------------------------- */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: inline-block;
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-navy);
+  text-decoration: none;
+  padding: 8px 2px;
+  position: relative;
+  transition: color var(--transition-default);
+}
+
+.nav-link:hover {
+  color: var(--color-terracotta);
+}
+
+/* Indicador de página ativa (fiel ao traço terracota no mockup sob 'Início') */
+.nav-link.is-active {
+  color: var(--color-navy);
+  font-weight: var(--font-weight-semibold);
+}
+
+.nav-link.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 2.5px;
+  background-color: var(--color-terracotta);
+  border-radius: 2px;
+}
+
+/* Micro-interação: barra expansível ao passar o cursor nos outros itens */
+.nav-link:not(.is-active)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-terracotta);
+  border-radius: 2px;
+  transition: transform var(--transition-default);
+  transform-origin: center;
+}
+
+.nav-link:not(.is-active):hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   6. Botão de Conversão (.btn-quote)
+   -------------------------------------------------------------------------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-quote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-terracotta);
+  color: var(--color-white);
+  font-size: var(--font-size-btn);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-btn);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background-color var(--transition-default), transform var(--transition-default), box-shadow var(--transition-default);
+  box-shadow: 0 1px 3px rgba(173, 92, 59, 0.15);
+}
+
+.btn-quote:hover {
+  background-color: var(--color-terracotta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(173, 92, 59, 0.25);
+}
+
+.btn-quote:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(173, 92, 59, 0.15);
+}
+
+.btn-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* Ocultar o botão do interior da gaveta móvel em ecrãs desktop */
+.mobile-nav-cta {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. Botão do Menu Hambúrguer (Mobile Toggle)
+   -------------------------------------------------------------------------- */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--color-navy);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-default), background-color var(--transition-default);
+  position: relative;
+  z-index: 1001;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-toggle:hover {
+  background-color: rgba(17, 42, 60, 0.05);
+}
+
+/* Ícone de 3 linhas animadas para X quando aberto */
+.hamburger-box {
+  width: 22px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-navy);
+  border-radius: 2px;
+  position: absolute;
+  transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
+}
+
+.hamburger-inner {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-inner::before {
+  content: '';
+  top: -7px;
+  left: 0;
+}
+
+.hamburger-inner::after {
+  content: '';
+  top: 7px;
+  left: 0;
+}
+
+/* Estado aberto do hambúrguer (Transforma em X) */
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-inner {
+  background-color: transparent;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-inner::before {
+  top: 0;
+  transform: rotate(45deg);
+  background-color: var(--color-terracotta);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-inner::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: var(--color-terracotta);
+}
+
+/* Fundo escuro de sobreposição quando menu móvel estiver ativo */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 42, 60, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mobile-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   8. Skeleton / Pré-marcação para Seções Futuras (Sem Conteúdo Visual)
+   -------------------------------------------------------------------------- */
+.section-anchor {
+  position: relative;
+  scroll-margin-top: calc(var(--header-height-desktop) + 10px);
+}
+
+/* --------------------------------------------------------------------------
+   8. Hero Section (.hero-section) - Etapa 2
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height-desktop));
+  min-height: calc(100dvh - var(--header-height-desktop));
+  background-color: var(--color-bg-header);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  display: block;
+}
+
+/* Transição visual suave: Transparência branca à esquerda que se abre para a fotografia à direita */
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.88) 32%,
+    rgba(255, 255, 255, 0.45) 52%,
+    rgba(255, 255, 255, 0.1) 72%,
+    transparent 85%
+  );
+  pointer-events: none;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+.hero-content {
+  max-width: 530px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-navy-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--color-navy);
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.hero-desc {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-navy-muted);
+  margin-bottom: 32px;
+  max-width: 490px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Botão Secundário (.btn-secondary) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-navy);
+  font-size: var(--font-size-btn);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid rgba(17, 42, 60, 0.25);
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background-color var(--transition-default), border-color var(--transition-default), color var(--transition-default), transform var(--transition-default), box-shadow var(--transition-default);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-white);
+  border-color: var(--color-navy);
+  color: var(--color-terracotta);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(17, 42, 60, 0.08);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-hero-primary {
+  padding: 12px 22px;
+  font-size: 0.9375rem;
+}
+
+.btn-hero-secondary {
+  padding: 12px 20px;
+  font-size: 0.9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   8.1 Faixa de Diferenciais (.features-bar) - Etapa 3
+   -------------------------------------------------------------------------- */
+.features-bar {
+  width: 100%;
+  background-color: var(--color-bg-header);
+  border-top: 1px solid rgba(17, 42, 60, 0.06);
+  border-bottom: 1px solid rgba(17, 42, 60, 0.06);
+  padding: 28px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  width: 100%;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+  position: relative;
+}
+
+/* Divisória vertical fina e discreta entre os elementos (sem divisória no final) */
+.feature-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  width: 1px;
+  background-color: rgba(17, 42, 60, 0.1);
+}
+
+.feature-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-terracotta);
+}
+
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.feature-desc {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-navy-muted);
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   9. Responsividade e Breakpoints (320px, 375px, 768px, 1024px, 1440px)
+   -------------------------------------------------------------------------- */
+
+/* Telas Grandes e Médias (>= 1025px) */
+@media (min-width: 1025px) {
+  .nav-list {
+    gap: 32px;
+  }
+}
+
+/* Tablets em Orientação Paisagem / Portáteis Menores (<= 1024px) */
+@media (max-width: 1024px) {
+  .nav-list {
+    gap: 20px;
+  }
+  .brand-logo-img {
+    height: 40px;
+  }
+  .btn-quote {
+    padding: 9px 15px;
+    font-size: 0.8125rem;
+  }
+  .hero-title {
+    font-size: 2.75rem;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 8px rgba(255, 255, 255, 0.6);
+  }
+  .hero-desc {
+    color: #1a364e;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  }
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.85) 38%,
+      rgba(255, 255, 255, 0.45) 62%,
+      transparent 85%
+    );
+  }
+
+  .feature-item {
+    padding: 0 14px;
+    gap: 12px;
+  }
+  .feature-title {
+    font-size: 0.875rem;
+  }
+  .feature-desc {
+    font-size: 0.75rem;
+  }
+}
+
+/* Tablets e Dispositivos Móveis (<= 880px) */
+@media (max-width: 880px) {
+  .site-header {
+    height: var(--header-height-mobile);
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-overlay {
+    display: block;
+  }
+
+  /* Gaveta de navegação móvel (Slide Down / Off-canvas) */
+  .main-nav {
+    position: fixed;
+    top: var(--header-height-mobile);
+    right: 0;
+    width: 100%;
+    max-width: 320px;
+    height: calc(100vh - var(--header-height-mobile));
+    background-color: var(--color-white);
+    border-left: 1px solid var(--color-border-subtle);
+    padding: 24px 20px 40px;
+    box-shadow: -4px 12px 24px rgba(17, 42, 60, 0.08);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+
+  .main-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav-item {
+    border-bottom: 1px solid rgba(17, 42, 60, 0.05);
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .nav-link.is-active::after {
+    left: 8px;
+    transform: none;
+    bottom: 8px;
+    width: 24px;
+    height: 2px;
+  }
+
+  .nav-link:not(.is-active)::after {
+    display: none;
+  }
+
+  /* Botão de conversão adicional dentro do menu mobile */
+  .mobile-nav-cta {
+    display: block;
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .mobile-nav-cta .btn-quote {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.9375rem;
+  }
+
+  /* No cabeçalho móvel, ocultar o botão para manter espaço limpo */
+  .header-actions .btn-quote {
+    display: none;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+  }
+
+  /* Hero Section Mobile: Preencher 100% da primeira folha do ecrã */
+  .hero-section {
+    min-height: calc(100vh - var(--header-height-mobile));
+    min-height: calc(100dvh - var(--header-height-mobile));
+    padding-top: 32px;
+    padding-bottom: 36px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-bg-img {
+    object-position: 65% center;
+  }
+
+  .hero-tag {
+    color: var(--color-navy);
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+    line-height: 1.15;
+    color: var(--color-navy);
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 3px 12px rgba(255, 255, 255, 0.75);
+  }
+
+  .hero-desc {
+    color: var(--color-navy);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+  }
+
+  /* Transparência branca limpa e confortável para leitura nítida dos textos no mobile */
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.88) 46%,
+      rgba(255, 255, 255, 0.58) 68%,
+      rgba(255, 255, 255, 0.15) 86%,
+      transparent 100%
+    );
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  /* Faixa de Diferenciais Mobile & Tablet */
+  .features-bar {
+    padding: 24px 0;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 22px;
+  }
+
+  .feature-item {
+    padding: 0 16px;
+  }
+
+  .feature-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .feature-item:nth-child(odd)::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 36px;
+    width: 1px;
+    background-color: rgba(17, 42, 60, 0.1);
+  }
+}
+
+/* Smartphones Pequenos (<= 375px e 320px) */
+@media (max-width: 375px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .brand-logo-img {
+    height: 34px;
+    max-width: 175px;
+  }
+
+  .mobile-menu-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+  }
+
+  .main-nav {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 2px 10px rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Telas Muito Estreitas (<= 520px) */
+@media (max-width: 520px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  .feature-item {
+    padding: 10px 4px;
+    border-bottom: 1px solid rgba(17, 42, 60, 0.06);
+  }
+
+  .feature-item:last-child {
+    border-bottom: none;
+  }
+
+  .feature-item:nth-child(odd)::after {
+    display: none;
+  }
+
+  .feature-title,
+  .feature-desc {
+    white-space: normal;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. SEÇÃO DE SERVIÇOS (ETAPA 4)
+   Fidelidade ao Mockup:
+   - Fundo neutro suave (#FAF9F7)
+   - Linha superior: Intro (esquerda) + Foto de análise e Bloco azul-marinho (direita)
+   - Linha inferior: Quatro cartões uniformes com fotos reais, ícones terracota e tipografia azul-marinho
+   -------------------------------------------------------------------------- */
+.services-section {
+  background-color: var(--color-bg-header); /* #faf9f7 tom quente neutro */
+  padding: 84px 0 88px;
+  position: relative;
+  border-top: 1px solid rgba(17, 42, 60, 0.05);
+}
+
+/* Grade Superior: Introdução + Grupo de Chamada */
+.services-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 32px;
+}
+
+/* PARTE A — INTRODUÇÃO */
+.services-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 24px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-navy-muted);
+  max-width: 500px;
+  margin: 0;
+}
+
+/* PARTE B — GRUPO DE CHAMADA (FOTO + BLOCO AZUL-MARINHO) */
+.services-cta-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Foto de análise de plantas */
+.services-plan-media {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 175px;
+  box-shadow: 0 3px 10px rgba(17, 42, 60, 0.06);
+}
+
+.services-plan-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bloco azul-marinho de chamada */
+.services-cta-card {
+  background-color: var(--color-navy);
+  border-radius: 8px;
+  padding: 22px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(17, 42, 60, 0.12);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.services-cta-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(17, 42, 60, 0.2);
+}
+
+.services-cta-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.services-cta-icon-badge {
+  color: var(--color-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-cta-title {
+  font-size: 1.0625rem;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.services-cta-desc {
+  font-size: 0.8125rem;
+  color: #c5d2dc;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.services-cta-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-top: 14px;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.services-cta-card:hover .services-cta-arrow {
+  transform: translateX(3px);
+  background-color: var(--color-terracotta);
+  color: #ffffff;
+}
+
+/* PARTE C — QUATRO CARTÕES DE SERVIÇOS */
+.services-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 42, 60, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(17, 42, 60, 0.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(17, 42, 60, 0.08);
+  border-color: rgba(173, 92, 59, 0.3);
+}
+
+.service-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #f0eee9;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.03);
+}
+
+.service-card-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+
+.service-card-icon {
+  color: var(--color-terracotta);
+  flex-shrink: 0;
+}
+
+.service-card-title {
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.service-card-desc {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--color-navy-muted);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVIDADE DA SEÇÃO DE SERVIÇOS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .service-card-title {
+    font-size: 0.98rem;
+  }
+
+  .service-card-desc {
+    font-size: 0.8125rem;
+  }
+
+  .service-card-body {
+    padding: 14px 16px 18px;
+  }
+}
+
+@media (max-width: 960px) {
+  .services-header-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .services-intro {
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .services-cta-group {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-section {
+    padding: 56px 0 60px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .services-cta-group {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 100%;
+  }
+
+  .services-plan-media {
+    min-height: 180px;
+    max-height: 220px;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card-media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. SEÇÃO SOBRE A RADU (ETAPA 5)
+   Fidelidade estrita ao Mockup:
+   - Fundo neutro suave (#FAF9F7)
+   - Layout de duas colunas com alinhamento vertical centrado
+   - Fotografia da moradia à esquerda com cantos arredondados discretos (8px)
+   - Conteúdo à direita: Tag pequena, Título em duas linhas, dois parágrafos
+   - Botão terracota com ícone e seta discreta
+   -------------------------------------------------------------------------- */
+.about-section {
+  background-color: var(--color-bg-header); /* #faf9f7 tom quente neutro */
+  padding: 88px 0 92px;
+  position: relative;
+  border-top: 1px solid rgba(17, 42, 60, 0.05);
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Coluna Esquerda: Fotografia */
+.about-media {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(17, 42, 60, 0.07);
+}
+
+.about-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+/* Coluna Direita: Conteúdo Institucional */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-title {
+  font-size: 2.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-navy-muted);
+  margin-bottom: 16px;
+}
+
+.about-action {
+  margin-top: 10px;
+}
+
+/* Botão Institucional Terracota */
+.btn-about {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-terracotta);
+  color: var(--color-white);
+  padding: 12px 22px;
+  font-size: var(--font-size-btn);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(173, 92, 59, 0.2);
+  transition: var(--transition-default);
+}
+
+.btn-about:hover {
+  background-color: var(--color-terracotta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(173, 92, 59, 0.28);
+}
+
+.btn-about-icon {
+  flex-shrink: 0;
+}
+
+.btn-about-arrow {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.btn-about:hover .btn-about-arrow {
+  transform: translateX(3px);
+}
+
+/* Responsividade - Sobre a Radu */
+@media (max-width: 1024px) {
+  .about-container {
+    gap: 36px;
+  }
+
+  .about-title {
+    font-size: 1.875rem;
+    margin-bottom: 16px;
+  }
+
+  .about-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-media {
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-about {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+
