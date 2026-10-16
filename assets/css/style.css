@@ -57,13 +57,19 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background-color: var(--color-bg-body);
   color: var(--color-navy);
   line-height: 1.5;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 /* Acessibilidade: Foco visível via teclado */
@@ -1464,6 +1470,11 @@ button:focus-visible {
   transform: scale(1.04);
 }
 
+/* Controles do Slider de Projetos (ocultos em desktop) */
+.portfolio-slider-controls {
+  display: none;
+}
+
 /* Responsividade do Portfólio */
 @media (max-width: 1024px) {
   .portfolio-grid {
@@ -1478,14 +1489,64 @@ button:focus-visible {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .portfolio-section {
     padding: 56px 0 60px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-y: visible;
   }
 
+  .portfolio-section > .container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .portfolio-header {
+    margin-bottom: 24px;
+  }
+
+  /* Slider horizontal com scroll-snap para mobile sem vazamento de layout */
   .portfolio-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
     gap: 14px;
+    padding: 6px 0 16px;
+    margin: 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .portfolio-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .portfolio-item {
+    flex: 0 0 88%;
+    max-width: 88%;
+    width: 88%;
+    min-width: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-shadow: 0 4px 14px rgba(17, 42, 60, 0.08);
+  }
+
+  .portfolio-item:hover {
+    transform: none;
   }
 
   .portfolio-filters {
@@ -1503,6 +1564,69 @@ button:focus-visible {
     font-size: 0.8125rem;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  /* Controles visíveis no mobile */
+  .portfolio-slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .btn-portfolio-slider-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #d9e2ec;
+    color: var(--color-navy);
+    box-shadow: 0 2px 6px rgba(17, 42, 60, 0.08);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .btn-portfolio-slider-nav:hover,
+  .btn-portfolio-slider-nav:active {
+    background-color: var(--color-navy);
+    color: #ffffff;
+    border-color: var(--color-navy);
+    transform: scale(1.05);
+  }
+
+  .btn-portfolio-slider-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+    pointer-events: none;
+  }
+
+  .portfolio-slider-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .portfolio-slider-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .portfolio-slider-dots .dot.is-active {
+    width: 22px;
+    border-radius: 11px;
+    background-color: var(--color-terracotta);
   }
 }
 

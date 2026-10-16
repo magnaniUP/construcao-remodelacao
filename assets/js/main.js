@@ -120,8 +120,130 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
   const portfolioGrid = document.getElementById('portfolio-grid');
+  const sliderDotsContainer = document.querySelector('.portfolio-slider-dots');
+  const sliderPrevBtn = document.querySelector('.btn-portfolio-slider-nav.prev');
+  const sliderNextBtn = document.querySelector('.btn-portfolio-slider-nav.next');
 
   if (filterButtons.length > 0 && portfolioItems.length > 0) {
+    const getVisibleItems = () => {
+      return Array.from(portfolioItems).filter((item) => !item.classList.contains('is-hidden'));
+    };
+
+    let activeSlideIndex = 0;
+
+    const updateNavButtons = (count) => {
+      if (!sliderPrevBtn || !sliderNextBtn) return;
+      sliderPrevBtn.disabled = activeSlideIndex <= 0;
+      sliderNextBtn.disabled = activeSlideIndex >= count - 1;
+    };
+
+    const scrollToSlide = (index) => {
+      const visibleItems = getVisibleItems();
+      if (index < 0 || index >= visibleItems.length || !portfolioGrid) return;
+      activeSlideIndex = index;
+
+      const targetItem = visibleItems[index];
+      // Desloca estritamente o portfolioGrid, sem afetar o window ou quebrar a largura do ecrã
+      const itemLeft = targetItem.offsetLeft;
+      const itemWidth = targetItem.offsetWidth;
+      const gridWidth = portfolioGrid.clientWidth;
+      const scrollPos = itemLeft - (gridWidth - itemWidth) / 2;
+
+      portfolioGrid.scrollTo({
+        left: Math.max(0, scrollPos),
+        behavior: 'smooth'
+      });
+
+      if (sliderDotsContainer) {
+        const dots = sliderDotsContainer.querySelectorAll('.dot');
+        dots.forEach((d, i) => {
+          d.classList.toggle('is-active', i === activeSlideIndex);
+        });
+      }
+      updateNavButtons(visibleItems.length);
+    };
+
+    const renderSliderDots = () => {
+      if (!sliderDotsContainer) return;
+      sliderDotsContainer.innerHTML = '';
+      const visibleItems = getVisibleItems();
+
+      if (visibleItems.length <= 1) {
+        if (sliderPrevBtn) sliderPrevBtn.style.display = 'none';
+        if (sliderNextBtn) sliderNextBtn.style.display = 'none';
+        sliderDotsContainer.style.display = 'none';
+        return;
+      }
+
+      if (sliderPrevBtn) sliderPrevBtn.style.display = '';
+      if (sliderNextBtn) sliderNextBtn.style.display = '';
+      sliderDotsContainer.style.display = '';
+
+      visibleItems.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `dot ${idx === activeSlideIndex ? 'is-active' : ''}`;
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Ir para o projeto ${idx + 1} de ${visibleItems.length}`);
+        dot.addEventListener('click', () => {
+          scrollToSlide(idx);
+        });
+        sliderDotsContainer.appendChild(dot);
+      });
+
+      updateNavButtons(visibleItems.length);
+    };
+
+    if (sliderPrevBtn) {
+      sliderPrevBtn.addEventListener('click', () => {
+        scrollToSlide(activeSlideIndex - 1);
+      });
+    }
+
+    if (sliderNextBtn) {
+      sliderNextBtn.addEventListener('click', () => {
+        scrollToSlide(activeSlideIndex + 1);
+      });
+    }
+
+    // Sincronizar indicador de bolinhas durante swipe no mobile
+    let isScrollingTimer;
+    if (portfolioGrid) {
+      portfolioGrid.addEventListener('scroll', () => {
+        clearTimeout(isScrollingTimer);
+        isScrollingTimer = setTimeout(() => {
+          const visibleItems = getVisibleItems();
+          if (visibleItems.length === 0) return;
+
+          const gridRect = portfolioGrid.getBoundingClientRect();
+          const gridCenter = gridRect.left + gridRect.width / 2;
+          let closestIndex = 0;
+          let minDistance = Infinity;
+
+          visibleItems.forEach((item, idx) => {
+            const itemRect = item.getBoundingClientRect();
+            const itemCenter = itemRect.left + itemRect.width / 2;
+            const distance = Math.abs(gridCenter - itemCenter);
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestIndex = idx;
+            }
+          });
+
+          if (closestIndex !== activeSlideIndex) {
+            activeSlideIndex = closestIndex;
+            if (sliderDotsContainer) {
+              const dots = sliderDotsContainer.querySelectorAll('.dot');
+              dots.forEach((d, i) => {
+                d.classList.toggle('is-active', i === activeSlideIndex);
+              });
+            }
+            updateNavButtons(visibleItems.length);
+          }
+        }, 50);
+      }, { passive: true });
+    }
+
     const applyFilter = (filterValue, clickedBtn) => {
       // 1. Atualizar estados visuais e ARIA dos botões
       filterButtons.forEach((btn) => {
@@ -153,7 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (portfolioGrid) {
           portfolioGrid.style.opacity = '1';
+          portfolioGrid.scrollTo({ left: 0, behavior: 'smooth' });
         }
+
+        activeSlideIndex = 0;
+        renderSliderDots();
       }, 150);
     };
 
@@ -190,6 +316,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    // Inicializar controles do slider mobile
+    renderSliderDots();
   }
 
   /**
