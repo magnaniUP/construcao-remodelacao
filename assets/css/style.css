@@ -1623,7 +1623,7 @@ button:focus-visible {
    -------------------------------------------------------------------------- */
 .testimonials-section {
   background-color: var(--color-navy);
-  background-image: url('../images/clientes-background-cozinha.webp');
+  background-image: url('../images/clientes-background-cozinha.webp?v=4k_v14');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
